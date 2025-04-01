@@ -13,4 +13,5 @@ Then use pyinstaller to build the game using :
 ```sh 
 pyinstaller --onefile --noconsole --icon=src/icon.ico --add-data "sounds/*;sounds" --add-data "fonts/*;fonts" main.py
 ```
+This will create a dist dirrectory where the game files are located.
 All done!
