@@ -6,6 +6,7 @@ import sys
 import os
 
 py.init()
+py.mixer.init()
 
 # center the window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
@@ -16,6 +17,9 @@ screen = py.display.set_mode([widht,height])
 font1 = py.font.Font('fonts/pixel.ttf', 60)
 font = py.font.Font('fonts/pixel.ttf', 80)
 icon = py.image.load('icon.ico')
+
+selectsound = py.mixer.Sound('sounds/select.wav')
+
 clock = py.time.Clock()
 score1 = 0 
 score2 = 0
@@ -61,6 +65,7 @@ def menu():
                     player1 = Player1(0, height // 2)
                     player2 = Player2(widht - 20, height // 2)
                     active = False
+                    selectsound.play()
                 elif easytext_rect.collidepoint(py.mouse.get_pos()):
                     widht, height = 1000, 400
                     os.environ['SDL_VIDEO_CENTERED'] = '1'
@@ -68,6 +73,7 @@ def menu():
                     player2 = Player2(widht - 20, height // 2) 
                     screen = py.display.set_mode((widht, height))
                     active = False 
+                    selectsound.play()
     
 menu()
 
